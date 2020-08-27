@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"pretty": true,
+		"module": "CommonJS",
+		"target": "ESNext",
+		"strict": true
+	},
+	"exclude": [
+		"dist",
+		"node_modules"
+	]
+}

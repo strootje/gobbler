@@ -1,0 +1,51 @@
+{
+	"private": true,
+	"name": "@gobbler/frontend",
+	"version": "0.1.0",
+	"scripts": {
+		"clean": "rimraf ./dist ./*.tsbuildinfo",
+		"prebuild:dev": "run-p clean",
+		"build:dev": "env NODE_ENV=development webpack",
+		"preserve:dev": "run-p clean",
+		"serve:dev": "env NODE_ENV=development webpack-dev-server"
+	},
+	"dependencies": {
+		"chichi-app": "*",
+		"chichi-base": "*",
+		"@creativebulma/bulma-badge": "^1.0.1",
+		"@gobbler/domain": "workspace:*",
+		"@gobbler/infra": "workspace:*",
+		"@types/classnames": "^2.2.10",
+		"aphrodite": "^2.4.0",
+		"bulma": "^0.9.0",
+		"classnames": "^2.2.6",
+		"preact": "^10.4.7",
+		"rxjs": "^6.6.2",
+		"shortid": "^2.2.15",
+		"source-map-loader": "^1.0.2"
+	},
+	"devDependencies": {
+		"@types/html-webpack-plugin": "^3.2.3",
+		"@types/mini-css-extract-plugin": "^0.9.1",
+		"@types/node": "^14.6.0",
+		"@types/shortid": "^0.0.29",
+		"@types/webpack": "^4.41.21",
+		"@types/webpack-dev-server": "^3.11.0",
+		"clean-webpack-plugin": "^3.0.0",
+		"css-loader": "^4.2.1",
+		"fork-ts-checker-webpack-plugin": "^5.1.0",
+		"html-webpack-plugin": "^4.3.0",
+		"mini-css-extract-plugin": "^0.9.0",
+		"npm-run-all": "^4.1.5",
+		"rimraf": "^3.0.2",
+		"sass": "^1.26.10",
+		"sass-loader": "^9.0.3",
+		"ts-loader": "^8.0.2",
+		"ts-node": "^8.10.2",
+		"tsconfig-paths-webpack-plugin": "^3.3.0",
+		"typescript": "^3.9.7",
+		"webpack": "^4.44.1",
+		"webpack-cli": "^3.3.12",
+		"webpack-dev-server": "^3.11.0"
+	}
+}

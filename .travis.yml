@@ -1,0 +1,24 @@
+language: node_js
+node_js: lts/*
+
+services:
+- docker
+
+cache:
+  npm: true
+  directories:
+  - $HOME/.pnpm-store/
+
+branches:
+  only:
+  - master
+
+before_install:
+- curl -L https://unpkg.com/@pnpm/self-installer | node
+
+install:
+- pnpm i
+
+script:
+- (cd ./packages/frontend && docker build -t gobbler .)
+- which docker-machine

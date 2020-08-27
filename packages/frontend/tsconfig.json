@@ -1,0 +1,27 @@
+{
+	"extends": "../../tsconfig",
+	"compilerOptions": {
+		"rootDir": "./",
+		"baseUrl": "./src",
+		"jsx": "react",
+		"jsxFactory": "h"
+	},
+	"include": [
+		"./**/*.ts",
+		"./**/*.tsx"
+	],
+	"references": [
+		{
+			"path": "../../../chichi/packages/base"
+		},
+		{
+			"path": "../../../chichi/packages/app"
+		},
+		{
+			"path": "../domain"
+		},
+		{
+			"path": "../infra"
+		}
+	]
+}
