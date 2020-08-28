@@ -12,12 +12,6 @@
 	],
 	"references": [
 		{
-			"path": "../../../chichi/packages/base"
-		},
-		{
-			"path": "../../../chichi/packages/app"
-		},
-		{
 			"path": "../domain"
 		},
 		{
