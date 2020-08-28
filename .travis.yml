@@ -19,6 +19,18 @@ before_install:
 install:
 - pnpm i
 
-script:
-- (cd ./packages/frontend && docker build -t gobbler .)
-- which docker-machine
+jobs:
+- name: build
+  script:
+  - pnpm recursive run build
+  - (cd ./packages/frontend && pnpm run build:dev && docker build -t gobbler .)
+  - docker save -o gobbler-docker-image gobbler
+
+deploy:
+- provider: script
+  on:
+    branch: master
+  cleanup: false
+  script:
+  - docker-machine scp ./gobbler-docker-image target:/inbox
+  - docker-machine ssh target -- docker load /inbox/gobbler-docker-image
