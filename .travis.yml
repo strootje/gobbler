@@ -25,11 +25,13 @@ jobs:
   - pnpm recursive run build
   - (cd ./packages/frontend && pnpm run build:dev && docker build -t gobbler .)
   - docker save -o gobbler-docker-image gobbler
+  - cat $GENERIC_SSH_KEY >> ~/.ssh/id_rsa
+  - docker-machine create --generic-ssh-key ~/.ssh/id_rsa target
+  - docker-machine scp ./gobbler-docker-image target:/inbox
 
 before_deploy:
 - cat $GENERIC_SSH_KEY >> ~/.ssh/id_rsa
 - docker-machine create --generic-ssh-key ~/.ssh/id_rsa target
-- docker-machine scp ./gobbler-docker-image target:/inbox
 
 deploy:
 - provider: script
